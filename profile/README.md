@@ -12,14 +12,14 @@
 
 **① 공연 목록**
 카테고리·검색으로 원하는 공연을 찾습니다.
-<img src="photo/01-list.png" width="100%">
+<img src="../photo/01-list.png" width="100%">
 
 </td>
 <td width="50%">
 
 **② 공연 상세 · 회차 선택**
 캘린더에서 회차를 고르고 출연진을 확인합니다.
-<img src="photo/02-detail.png" width="100%">
+<img src="../photo/02-detail.png" width="100%">
 
 </td>
 </tr>
@@ -28,14 +28,14 @@
 
 **③ 대기열 진입**
 예매 오픈 순간 몰린 사용자를 대기열에 순서대로 세웁니다.
-<img src="photo/03-queue.png" width="100%">
+<img src="../photo/03-queue.png" width="100%">
 
 </td>
 <td width="50%">
 
 **④ 순번 도달 → 자동 입장**
 처리 가능한 만큼만 실시간으로 좌석 선택 페이지로 들여보냅니다.
-<img src="photo/04-queue-success.png" width="100%">
+<img src="../photo/04-queue-success.png" width="100%">
 
 </td>
 </tr>
@@ -44,14 +44,14 @@
 
 **⑤ 좌석 선택**
 등급별 좌석을 실시간 상태로 보여주고, 동시 클릭도 분산락으로 막습니다.
-<img src="photo/05-seats.png" width="100%">
+<img src="../photo/05-seats.png" width="100%">
 
 </td>
 <td width="50%">
 
 **⑥ 결제 승인**
 Toss Payments 연동 결제 — 승인과 동시에 예매가 확정됩니다.
-<img src="photo/06-payment.png" width="100%">
+<img src="../photo/06-payment.png" width="100%">
 
 </td>
 </tr>
@@ -60,7 +60,7 @@ Toss Payments 연동 결제 — 승인과 동시에 예매가 확정됩니다.
 
 **⑦ 마이페이지**
 예매/결제 내역을 확인하고 환불을 요청할 수 있습니다.
-<img src="photo/07-mypage.png" width="100%">
+<img src="../photo/07-mypage.png" width="100%">
 
 </td>
 <td width="50%"></td>
@@ -70,13 +70,13 @@ Toss Payments 연동 결제 — 승인과 동시에 예매가 확정됩니다.
 ## 아키텍처
 
 **AWS 인프라** — VPC/서브넷 이중화, ALB(공개용/관리자용 분리), EKS 워커노드 오토스케일링, RDS/ElastiCache Multi-AZ, ECR·Secrets Manager·SQS-Lambda-SES까지 전부 Terraform으로 관리합니다.
-<img src="photo/08-arch-aws.png" width="100%">
+<img src="../photo/08-arch-aws.png" width="100%">
 
 **EKS 클러스터 내부** — KEDA(파드)·Karpenter(노드) 오토스케일링, External Secrets Operator로 시크릿 자동 동기화, ArgoCD·Prometheus/Grafana/Alertmanager로 배포와 관측을 자동화했습니다.
-<img src="photo/09-arch-eks.png" width="100%">
+<img src="../photo/09-arch-eks.png" width="100%">
 
 **GitOps CI/CD 흐름** — 앱 배포는 GitHub Actions → CD 레포 → ArgoCD Sync로 자동화하고, 인프라 배포는 의도적으로 수동(Terraform apply)으로 분리해 실수로 인한 인프라 변경을 막습니다.
-<img src="photo/10-arch-cicd.png" width="100%">
+<img src="../photo/10-arch-cicd.png" width="100%">
 
 ## 기능
 
